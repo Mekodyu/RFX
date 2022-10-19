@@ -1,0 +1,28 @@
+<!DOCTYPE html >  
+<html>  
+<head>  
+<title>RFX Aim Trainer</title>  
+<script>  
+/* Display a counter with the variable "Kills" */
+var kills = 0;
+var killsDisplay = document.createElement('div');
+killsDisplay.innerHTML = 'Kills: ' + kills;
+document.body.appendChild(killsDisplay);
+/* Display a red box little in a random place of the screen, when touched increase kills by 1 and move randomly to another place on the screen */
+var redBox = document.createElement('div');
+redBox.style.width = '50px';
+redBox.style.height = '50px';
+redBox.style.backgroundColor = 'red';
+redBox.style.position = 'absolute';
+redBox.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+redBox.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+document.body.appendChild(redBox);
+redBox.addEventListener('click', function() {
+  kills++;
+  killsDisplay.innerHTML = 'Kills: ' + kills;
+  redBox.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+  redBox.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+});
+</script>  
+</head>    
+</html>  
